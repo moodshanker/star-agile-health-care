@@ -1,6 +1,5 @@
 pipeline { 
   agent any
-
   tools {
       maven 'M2_HOME'
         }
@@ -10,8 +9,9 @@ pipeline {
          echo 'checkout the code from GitRepo'
          git 'https://github.com/moodshanker/star-agile-health-care.git'
                     }
-            }
-
+            } 
+         }
+       }
 
 
 
