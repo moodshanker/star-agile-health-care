@@ -1,4 +1,4 @@
-- name : Configure Docker on new EC2 Instances
+ - name : Configure Docker on new EC2 Instances
   hosts : all
   become: true
   // connection : ssh
