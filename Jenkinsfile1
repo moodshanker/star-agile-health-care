@@ -48,11 +48,15 @@ pipeline {
               //  sh 'terraform validate'
               //  sh 'terraform apply --auto-approve'
              //     }
-             //   } 
+             //   }
              
-             
-              }
-           }
+       stage('Deploy application using ansible'){
+         steps {
+         ansiblePlaybook credentialsId: 'test-server', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml'
+                 }
+               } 
+            }
+          }
          
 
 
