@@ -35,9 +35,14 @@ pipeline {
                    sh 'docker push shankerchauhan/projects:healthcare1'
                    }
                 }
-              } 
-            }
+              }  
+      stage('Deploy using Ansible') { 
+        steps { 
+         ansiblePlaybook credentialsId: 'test-server1', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'deploy-playbook.yml'      
+              }
+            }   
           }
+       }
          
 
 
