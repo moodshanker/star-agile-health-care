@@ -47,7 +47,7 @@ pipeline {
             sh "scp -r -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/HealthCare ubuntu@13.127.60.156:/home/ubuntu"
             script {
                 try {
-                    sh "ssh ubuntu@13.127.60.156 kubectl apply -f ."
+                    sh "ssh ubuntu@13.127.60.156 kubectl apply -f"
                }catch(error) {
                    sh "ssh ubuntu@13.127.60.156 kubectl create -f ." 
                      }
