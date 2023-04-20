@@ -36,11 +36,11 @@ pipeline {
                    }
                 }
               }  
-      stage('Deploy using Ansible') { 
-        steps { 
-           ansiblePlaybook credentialsId: 'kubtest-server', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'deploy-playbook.yml'      
-              }
-            }  
+      //stage('Deploy using Ansible') { 
+        //steps { 
+          // ansiblePlaybook credentialsId: 'kubtest-server', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'deploy-playbook.yml'      
+            //  }
+            //}  
       stage('Deploy using kubernetes') {
         steps {
             sshagent(['kubernetes']) {
