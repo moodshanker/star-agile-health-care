@@ -44,7 +44,7 @@ pipeline {
       stage('Deploy using kubernetes') {
         steps {
             sshagent(['kubernetes']) {
-            sh 'sudo scp -r -v -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/HealthCare/nodejsapp.yml ubuntu@43.205.126.245:/home/ubuntu'
+            sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/HealthCare ubuntu@43.205.126.245:/home/ubuntu'
             script {
                 try {
                     sh "ssh ubuntu@43.205.126.245 kubectl apply -f nodejsapp.yaml"
