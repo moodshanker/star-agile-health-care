@@ -9,7 +9,7 @@ resource "aws_instance" "test-server" {
     private_key = file("frstkey.pem")
     # host     = self.public_ip
     host = aws_instance.instance.public_ip
-    user = var.aws_instance_user_name
+   
   }
   provisioner "remote-exec" {
     inline = [ "echo 'wait to start instance' "]
