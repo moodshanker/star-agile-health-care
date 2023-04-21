@@ -41,18 +41,14 @@ pipeline {
           // ansiblePlaybook credentialsId: 'kubtest-server', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'deploy-playbook.yml'      
             //  }
             //}  
-      stage('Deploy using kubernetes') {
+      stage('Deploy Kubernetes using Terraform') {
         steps {
-            sshagent(['kubernetes']) {
-            sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/HealthCare ubuntu@43.205.126.245:/home/ubuntu'
-            script {
-                try {
-                    sh "ssh ubuntu@43.205.126.245 kubectl apply -f nodejsapp.yaml"
-               }catch(error) {
-                   sh "ssh ubuntu@43.205.126.245 kubectl create -f nodejsapp.yaml" 
-                     }
-                   }
-                 }
+               sh 'sudo chmod 600 frstkey.pem'
+               sh 'terraform init'
+               sh 'terraform validate'
+               sh 'terraform plan'
+               sh 'terraform apply -auto-approve'
+                 
                }
              }
           }       
