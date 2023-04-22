@@ -2,8 +2,8 @@ resource "aws_instance" "Test-server" {
   ami           = "ami-007855ac798b5175e" 
   instance_type = "t2.medium" 
   availability_zone      = "us-east-1a"
-  vpc_security_group_ids= [aws_security_group.my_sg.id]
-  key_name = "KeyPair.pem"
+  vpc_security_group_ids= [sg-011bfcf57c8aee9ff]
+  key_name = "frstkey.pem"
   tags = {
     name = "kubernetes_instance"
   }
