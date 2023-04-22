@@ -24,7 +24,7 @@ resource "aws_instance" "Test-server" {
       type        = "ssh"
       host        = self.public_ip
       user        = "ubuntu"
-      private_key = file("./frstkey.pem")
+      private_key = file("./kubekey.pem")
     }
   }
 }
