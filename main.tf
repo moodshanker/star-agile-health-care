@@ -3,7 +3,7 @@ resource "aws_instance" "Test-server" {
   instance_type = "t2.medium" 
   availability_zone      = "us-east-1a"
   vpc_security_group_ids = ["sg-011bfcf57c8aee9ff"]
-  key_name = "frstkey.pem"
+  key_name = "kubekey.pem"
   tags = {
     name = "kubernetes_instance"
   }
@@ -31,7 +31,7 @@ resource "aws_instance" "Test-server" {
   //connection {
     //type     = "ssh"
     //user     = "ubuntu"
-    //private_key = file("frstkey.pem")
+    //private_key = file("kubekey.pem")
     // host     = self.public_ip
     //host = aws_instance.instance.public_ip
    
