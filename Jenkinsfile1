@@ -40,7 +40,7 @@ pipeline {
                    }
                 }
               }
-            stage('Deploy Kubernetes using Terraform') {
+     stage('Deploy Kubernetes using Terraform') {
       steps {
         script {
           kubernetesDeploy(configs: "deploymentservice.yml", kubeconfigId: "kubernetes")
