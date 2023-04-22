@@ -2,7 +2,15 @@ resource "aws_instance" "Test-server" {
   ami           = "ami-007855ac798b5175e" 
   instance_type = "t2.medium" 
   availability_zone      = "us-east-1a"
-  vpc_security_group_ids = ["sg-011bfcf57c8aee9ff"]
+  resource "aws_security_group_rule" "my_rule" {
+  security_group_id = aws_security_group.my_existing_sg.id
+  # ... other rule configuration ...
+}
+resource "aws_security_group" "my_new_sg" {
+  name        = "my_new_sg"
+  # ... other security group configuration ...
+}
+  //vpc_security_group_ids = ["sg-011bfcf57c8aee9ff"]
   key_name = "kubekey.pem"
   tags = {
     name = "kubernetes_instance"
