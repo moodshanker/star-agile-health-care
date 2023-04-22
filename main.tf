@@ -1,5 +1,5 @@
 resource "aws_instance" "Test-server" {
-  ami           = "ami-02eb7a4783e7e9317" 
+  ami           = "ami-007855ac798b5175e" 
   instance_type = "t2.medium" 
   availability_zone      = "us-east-1a"
   vpc_security_group_ids= ["sg-0347106857582df29"]
