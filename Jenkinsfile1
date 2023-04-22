@@ -47,7 +47,7 @@ pipeline {
             //}  
       stage('Deploy Kubernetes using Terraform') {
         steps {
-               sh 'sudo chmod 600 kubekey.pem'
+               sh 'sudo chmod 600 frstkey.pem'
                sh 'terraform init'
                sh 'terraform validate'
                sh 'terraform plan'
